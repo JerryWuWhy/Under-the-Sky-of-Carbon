@@ -16,13 +16,13 @@ public class Resource : MonoBehaviour
     public int carbon;
     
     [SerializeField] private Image MoneyFill;
-    public float currentmoney = 1f;
+    public float currentmoney = 0.11f;
     
     [SerializeField] private Image TechnologyFill;
-    public float currenttechnology = 1f;
+    public float currenttechnology = 0.11f;
     
     [SerializeField] private Image PrestigeFill;
-    public float currentprestige = 1f;
+    public float currentprestige = 0.11f;
     
     private void UpdateMoneyhBar()
     {
