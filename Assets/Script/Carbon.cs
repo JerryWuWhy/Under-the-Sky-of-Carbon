@@ -7,6 +7,13 @@ public class Carbon : MonoBehaviour
     public float currentHealth = 1f;
     public GameObject Ending;
     public Text endtext;
+    
+    public static Carbon Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
@@ -25,7 +32,7 @@ public class Carbon : MonoBehaviour
             {
                 endtext.text=("你成功了。虽然温室气体仍旧在被源源不断地生产，但是对于拥有者远超邻国科技数个年代的你来说这不成问题。什么温室气体，二氧化碳，不过本质上还是一些特定排列的分子罢了。科技的大手会重组它们，无害化它们，为本市的碳中和计划再添一笔。");
             }
-            if (Resource.Instance.prestige >= Resource.Instance.money ||
+            if (Resource.Instance.prestige >= Resource.Instance.money &&
                 Resource.Instance.prestige >= Resource.Instance.technology)
             {
                 endtext.text=("你成功了。靠着树立的可靠，为人民服务的形象，你成功抑制了人们肆意排放温室气体的冲动。在你的强力手腕下，本市的所有车辆均已被电动化，工厂均在处理后不产生任何有害气体。同时，靠着极其广泛的人脉，你聘请来了众多贝诺尔得主致力于从物理层面消灭排放。但你们还有的是时间。");
@@ -44,7 +51,7 @@ public class Carbon : MonoBehaviour
             {
                 endtext.text=("你一败涂地。曾经你以为科技可以从根本上解决难题，但是人们好像更倾向于加强开采机的效率，加大工厂的生产效率，而非去研发什么虚无缥缈的可回收能源解决方案。毕竟谁会和利益过不去啊！只有傻子才会取研发还无油水可榨的新能源技术。看着面前壮观的排排黑烟以及直插云霄的巨型提炼机，你无奈但欣慰地笑了。");
             }
-            if (Resource.Instance.prestige >= Resource.Instance.money ||
+            if (Resource.Instance.prestige >= Resource.Instance.money &&
                 Resource.Instance.prestige >= Resource.Instance.technology)
             {
                 endtext.text=("你一败涂地。人民拥护你，但是你却利用自己的权利成为了一个暴君。人民顺从你，但是你却把他们当成了奴隶。现在，你坐在被黑烟笼罩的权利王座上，迷茫地眺望着那不存在的未来。");
@@ -54,9 +61,6 @@ public class Carbon : MonoBehaviour
     
     private void UpdateHealthBar()
     {
-        if (CarbonFill != null)
-        {
             CarbonFill.fillAmount = currentHealth;
-        }
     }
 } 
