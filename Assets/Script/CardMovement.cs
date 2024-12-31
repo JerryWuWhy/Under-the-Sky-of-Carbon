@@ -119,9 +119,9 @@ namespace Script
         {
             if (isPrepare != _isPrepareLeft)
             {
-                animPrepareLeft.Stop();
-                animPrepareLeft.Rewind();
-                animPrepareLeft.Play(isPrepare ? LeftPrepareFadeIn : LeftPrepareFadeOut);
+                animPrepareRight.Stop();
+                animPrepareRight.Rewind();
+                animPrepareRight.Play(isPrepare ? RightPrepareFadeIn : RightPrepareFadeOut);
                 _isPrepareLeft = isPrepare;
             }
         }
@@ -138,9 +138,9 @@ namespace Script
         {
             if (isPrepare != _isPrepareRight)
             {
-                animPrepareRight.Stop();
-                animPrepareRight.Rewind();
-                animPrepareRight.Play(isPrepare ? RightPrepareFadeIn : RightPrepareFadeOut);
+                animPrepareLeft.Stop();
+                animPrepareLeft.Rewind();
+                animPrepareLeft.Play(isPrepare ? LeftPrepareFadeIn : LeftPrepareFadeOut);
                 _isPrepareRight = isPrepare;
             }
         }

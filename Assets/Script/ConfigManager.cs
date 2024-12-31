@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class ConfigManager : MonoBehaviour
@@ -23,7 +24,16 @@ public class ConfigManager : MonoBehaviour
         public int technology;
         public int prestige;
         public int carbon;
+        
+        public int nomoney;
+        public int notechnology;
+        public int noprestige;
+        public int nocarbon;
+        
         [TextArea] public string text;
+        [TextArea] public string yestext;
+        [TextArea] public string notext;
+
     }
 
     public List<CardConfig> cardConfigs;
