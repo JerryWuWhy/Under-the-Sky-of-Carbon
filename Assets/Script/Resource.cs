@@ -1,4 +1,4 @@
-using  System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,32 +14,43 @@ public class Resource : MonoBehaviour
     public int technology;
     public int prestige;
     public int carbon;
-    
+    public Image MoneyFillIncrease;
+    public Image MoneyFillDecrease;
+    public Image MoneyFillBlock;
+    public Image TechnologyFillIncrease;
+    public Image TechnologyFillDecrease;
+    public Image TechnologyFillBlock;
+    public Image PrestigeFillIncrease;
+    public Image PrestigeFillDecrease;
+    public Image PrestigeFillBlock;
+
+
     [SerializeField] private Image MoneyFill;
-    public float currentmoney = 0.11f;
-    
+    public float currentmoney = 0.1f;
+
     [SerializeField] private Image TechnologyFill;
-    public float currenttechnology = 0.11f;
-    
+    public float currenttechnology = 0.1f;
+
     [SerializeField] private Image PrestigeFill;
-    public float currentprestige = 0.11f;
-    
+    public float currentprestige = 0.1f;
+
     private void UpdateMoneyhBar()
     {
         MoneyFill.fillAmount = currentmoney;
     }
-    
+
     private void UpdateTechnologyBar()
     {
         TechnologyFill.fillAmount = currenttechnology;
     }
-    
+
     private void UpdatePrestigeBar()
     {
         PrestigeFill.fillAmount = currentprestige;
     }
-    
+
     public static Resource Instance { get; private set; }
+
     private void Awake()
     {
         Instance = this;
@@ -48,6 +59,15 @@ public class Resource : MonoBehaviour
     private void Start()
     {
         LoadResources();
+        MoneyFillIncrease.gameObject.SetActive(false);
+        MoneyFillDecrease.gameObject.SetActive(false);
+        MoneyFillBlock.gameObject.SetActive(false);
+        TechnologyFillIncrease.gameObject.SetActive(false);
+        TechnologyFillDecrease.gameObject.SetActive(false);
+        TechnologyFillBlock.gameObject.SetActive(false);
+        PrestigeFillIncrease.gameObject.SetActive(false);
+        PrestigeFillDecrease.gameObject.SetActive(false);
+        PrestigeFillBlock.gameObject.SetActive(false);
     }
 
     public void LoadResources()
@@ -75,11 +95,13 @@ public class Resource : MonoBehaviour
             Carbon.Instance.Ending.SetActive(true);
             Carbon.Instance.endtext.text = ("晤，你破产了。看起来你不擅长保护你的财产。现在你和你的城市负债累累，连生计都难以维持，哪有时间再去降低碳排放。");
         }
+
         if (technology < 0)
         {
             Carbon.Instance.Ending.SetActive(true);
             Carbon.Instance.endtext.text = ("长期以往对科技的忽视导致了技术的倒退。现在你们不过是一群住在名为高楼大厦的洞穴里的原始人罢了。");
         }
+
         if (prestige < 0)
         {
             Carbon.Instance.Ending.SetActive(true);

@@ -7,6 +7,7 @@ namespace Script
 {
     public class CardMovement : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
+        public static CardMovement Instance { get; private set; }
         public RectTransform rectTransform;
         public RectTransform targetTrans;
         public float minOffset = 50;
@@ -41,6 +42,7 @@ namespace Script
 
         public void Awake()
         {
+            Instance = this;
             _startOriginPos = targetTrans.anchoredPosition;
             _endDropTime = 0;
         }
@@ -97,7 +99,7 @@ namespace Script
             {
                 _BackToCenter();
             }
-            
+
             _PrepareLeft(false);
             _PrepareRight(false);
 
@@ -118,6 +120,67 @@ namespace Script
                 animPrepareRight.Rewind();
                 animPrepareRight.Play(isPrepare ? RightPrepareFadeIn : RightPrepareFadeOut);
                 _isPrepareLeft = isPrepare;
+                if (isPrepare)
+                {
+                    Resource.Instance.MoneyFillDecrease.fillAmount = 0f;
+                    Resource.Instance.MoneyFillIncrease.fillAmount = 0f;
+                    Resource.Instance.MoneyFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.money >= 0)
+                    {
+                        Resource.Instance.MoneyFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.money + Resource.Instance.money) / 1000F;
+                        Resource.Instance.MoneyFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.money < 0)
+                    {
+                        Resource.Instance.MoneyFillDecrease.fillAmount = Resource.Instance.money / 1000F;
+                        Resource.Instance.MoneyFillBlock.fillAmount =
+                            (Resource.Instance.money + Card.Instance.CurConfig.money) / 1000F;
+                        Resource.Instance.MoneyFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.MoneyFillBlock.gameObject.SetActive(true);
+                    }
+
+
+                    Resource.Instance.TechnologyFillDecrease.fillAmount = 0f;
+                    Resource.Instance.TechnologyFillIncrease.fillAmount = 0f;
+                    Resource.Instance.TechnologyFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.technology >= 0)
+                    {
+                        Resource.Instance.TechnologyFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.technology + Resource.Instance.technology) / 1000F;
+                        Resource.Instance.TechnologyFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.technology < 0)
+                    {
+                        Resource.Instance.TechnologyFillDecrease.fillAmount = Resource.Instance.technology / 1000F;
+                        Resource.Instance.TechnologyFillBlock.fillAmount =
+                            (Resource.Instance.technology + Card.Instance.CurConfig.technology) / 1000F;
+                        Resource.Instance.TechnologyFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.TechnologyFillBlock.gameObject.SetActive(true);
+                    }
+                    
+                    
+                    Resource.Instance.PrestigeFillDecrease.fillAmount = 0f;
+                    Resource.Instance.PrestigeFillIncrease.fillAmount = 0f;
+                    Resource.Instance.PrestigeFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.prestige >= 0)
+                    {
+                        Resource.Instance.PrestigeFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.prestige + Resource.Instance.prestige) / 1000F;
+                        Resource.Instance.PrestigeFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.prestige < 0)
+                    {
+                        Resource.Instance.PrestigeFillDecrease.fillAmount = Resource.Instance.prestige / 1000F;
+                        Resource.Instance.PrestigeFillBlock.fillAmount =
+                            (Resource.Instance.prestige + Card.Instance.CurConfig.prestige) / 1000F;
+                        Resource.Instance.PrestigeFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.PrestigeFillBlock.gameObject.SetActive(true);
+                    }
+                }
             }
         }
 
@@ -135,18 +198,121 @@ namespace Script
                 animPrepareLeft.Rewind();
                 animPrepareLeft.Play(isPrepare ? LeftPrepareFadeIn : LeftPrepareFadeOut);
                 _isPrepareRight = isPrepare;
+                if (isPrepare)
+                {
+                    Resource.Instance.MoneyFillDecrease.fillAmount = 0f;
+                    Resource.Instance.MoneyFillIncrease.fillAmount = 0f;
+                    Resource.Instance.MoneyFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.nomoney >= 0)
+                    {
+                        Resource.Instance.MoneyFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.nomoney + Resource.Instance.money) / 1000F;
+                        Resource.Instance.MoneyFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.nomoney < 0)
+                    {
+                        Resource.Instance.MoneyFillDecrease.fillAmount = Resource.Instance.money / 1000F;
+                        Resource.Instance.MoneyFillBlock.fillAmount =
+                            (Resource.Instance.money + Card.Instance.CurConfig.nomoney) / 1000F;
+                        Resource.Instance.MoneyFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.MoneyFillBlock.gameObject.SetActive(true);
+                    }
+
+
+                    Resource.Instance.TechnologyFillDecrease.fillAmount = 0f;
+                    Resource.Instance.TechnologyFillIncrease.fillAmount = 0f;
+                    Resource.Instance.TechnologyFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.notechnology >= 0)
+                    {
+                        Resource.Instance.TechnologyFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.notechnology + Resource.Instance.technology) / 1000F;
+                        Resource.Instance.TechnologyFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.notechnology < 0)
+                    {
+                        Resource.Instance.TechnologyFillDecrease.fillAmount = Resource.Instance.technology / 1000F;
+                        Resource.Instance.TechnologyFillBlock.fillAmount =
+                            (Resource.Instance.technology + Card.Instance.CurConfig.notechnology) / 1000F;
+                        Resource.Instance.TechnologyFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.TechnologyFillBlock.gameObject.SetActive(true);
+                    }
+                    
+                    
+                    Resource.Instance.PrestigeFillDecrease.fillAmount = 0f;
+                    Resource.Instance.PrestigeFillIncrease.fillAmount = 0f;
+                    Resource.Instance.PrestigeFillBlock.fillAmount = 0f;
+                    if (Card.Instance.CurConfig.noprestige >= 0)
+                    {
+                        Resource.Instance.PrestigeFillIncrease.fillAmount =
+                            (Card.Instance.CurConfig.noprestige + Resource.Instance.prestige) / 1000F;
+                        Resource.Instance.PrestigeFillIncrease.gameObject.SetActive(true);
+                    }
+
+                    if (Card.Instance.CurConfig.noprestige < 0)
+                    {
+                        Resource.Instance.PrestigeFillDecrease.fillAmount = Resource.Instance.prestige / 1000F;
+                        Resource.Instance.PrestigeFillBlock.fillAmount =
+                            (Resource.Instance.prestige + Card.Instance.CurConfig.noprestige) / 1000F;
+                        Resource.Instance.PrestigeFillDecrease.gameObject.SetActive(true);
+                        Resource.Instance.PrestigeFillBlock.gameObject.SetActive(true);
+                    }
+                }
             }
         }
 
         private void _BackToCenter()
         {
             _StartMove(_startOriginPos.x, moveTime);
+
+            Resource.Instance.MoneyFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillBlock.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillIncrease.fillAmount = 0f;
+            Resource.Instance.MoneyFillDecrease.fillAmount = 0f;
+            Resource.Instance.MoneyFillBlock.fillAmount = 0f;
+
+            Resource.Instance.TechnologyFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillBlock.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillIncrease.fillAmount = 0f;
+            Resource.Instance.TechnologyFillDecrease.fillAmount = 0f;
+            Resource.Instance.TechnologyFillBlock.fillAmount = 0f;
+            
+            Resource.Instance.PrestigeFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillBlock.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillIncrease.fillAmount = 0f;
+            Resource.Instance.PrestigeFillDecrease.fillAmount = 0f;
+            Resource.Instance.PrestigeFillBlock.fillAmount = 0f;
         }
 
         private void NewCard()
         {
             onNewCard?.Invoke();
             _StartMove(_startOriginPos.x, 0);
+
+            Resource.Instance.MoneyFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillBlock.gameObject.SetActive(false);
+            Resource.Instance.MoneyFillIncrease.fillAmount = 0f;
+            Resource.Instance.MoneyFillDecrease.fillAmount = 0f;
+            Resource.Instance.MoneyFillBlock.fillAmount = 0f;
+
+            Resource.Instance.TechnologyFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillBlock.gameObject.SetActive(false);
+            Resource.Instance.TechnologyFillIncrease.fillAmount = 0f;
+            Resource.Instance.TechnologyFillDecrease.fillAmount = 0f;
+            Resource.Instance.TechnologyFillBlock.fillAmount = 0f;
+            
+            Resource.Instance.PrestigeFillIncrease.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillDecrease.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillBlock.gameObject.SetActive(false);
+            Resource.Instance.PrestigeFillIncrease.fillAmount = 0f;
+            Resource.Instance.PrestigeFillDecrease.fillAmount = 0f;
+            Resource.Instance.PrestigeFillBlock.fillAmount = 0f;
         }
 
         private void SetTargetPos(float offsetX)
@@ -157,6 +323,7 @@ namespace Script
         }
 
         private Action _moveFinished = null;
+
         private void _StartMove(float posX, float time, Action onFinish = null)
         {
             _startDropPos = targetTrans.anchoredPosition.x;
