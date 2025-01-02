@@ -102,7 +102,9 @@ namespace Script
             {
                 _BackToCenter();
             }
-
+            
+            _PrepareLeft(false);
+            _PrepareRight(false);
 
             _isDragging = false;
         }
