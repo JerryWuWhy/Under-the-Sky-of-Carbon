@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Application.targetFrameRate = 120;
 
         cardMovement.onSelectRight = OnYesClick;
         cardMovement.onSelectLeft = OnNoClick;
