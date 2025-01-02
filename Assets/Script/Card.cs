@@ -1,4 +1,3 @@
-using System;
 using Script;
 using UnityEngine;
 using UnityEngine.UI;
