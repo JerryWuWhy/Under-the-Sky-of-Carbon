@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class Resource : MonoBehaviour
 {
-    public TextMeshProUGUI Money;
-    public TextMeshProUGUI Technology;
-    public TextMeshProUGUI Prestige;
     public int money;
     public int technology;
     public int prestige;
@@ -80,9 +77,6 @@ public class Resource : MonoBehaviour
 
     private void Update()
     {
-        Money.text = (money.ToString());
-        Technology.text = (technology.ToString());
-        Prestige.text = (prestige.ToString());
         UpdateMoneyhBar();
         currentmoney = (Resource.Instance.money) / 1000f;
         UpdateTechnologyBar();

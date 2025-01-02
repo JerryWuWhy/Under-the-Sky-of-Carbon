@@ -170,7 +170,7 @@ public class JenkinsBuild
             PlayerSettings.Android.keystoreName = GetArg<string>("KeystorePath");
         }
 
-        PlayerSettings.Android.useAPKExpansionFiles = EditorUserBuildSettings.buildAppBundle;
+        PlayerSettings.Android.splitApplicationBinary = EditorUserBuildSettings.buildAppBundle;
         // Unity 版本大于 2022时，使用下面的代码
         // PlayerSettings.Android.splitApplicationBinary = EditorUserBuildSettings.buildAppBundle;
 
