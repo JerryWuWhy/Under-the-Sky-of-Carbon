@@ -6,8 +6,6 @@ using Random = UnityEngine.Random;
 
 public class Card : MonoBehaviour
 {
-    public Button yes;
-    public Button no;
     public Text cardText;
     public Text yesText;
     public Text noText;
@@ -42,7 +40,6 @@ public class Card : MonoBehaviour
 
     public void OnYesClick()
     {
-        
             Resource.Instance.money += _cardConfig.money;
             Resource.Instance.technology += _cardConfig.technology;
             Resource.Instance.prestige += _cardConfig.prestige;
@@ -65,7 +62,6 @@ public class Card : MonoBehaviour
 
     public void OnNoClick()
     {
-        
             Resource.Instance.money += _cardConfig.nomoney;
             Resource.Instance.technology += _cardConfig.notechnology;
             Resource.Instance.prestige += _cardConfig.noprestige;

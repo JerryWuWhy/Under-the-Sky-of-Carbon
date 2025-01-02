@@ -47,15 +47,12 @@ namespace Script
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            // 将屏幕坐标转换为 RectTransform 的局部坐标
-            // Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 rectTransform,
                 eventData.position,
                 eventData.pressEventCamera,
                 out _startClickPoint
             );
-            // _startClickPoint = rectTransform.anchoredPosition - localPoint;
             _isDragging = true;
         }
 
@@ -70,10 +67,8 @@ namespace Script
                     out var tmpClickPoint
                 );
                 Vector2 offset = tmpClickPoint - _startClickPoint;
-
                 _PrepareLeft(offset.x < 0 && Mathf.Abs(offset.x) > minOffset);
                 _PrepareRight(offset.x > 0 && Mathf.Abs(offset.x) > minOffset);
-
                 SetTargetPos(_startOriginPos.x + Mathf.Clamp(offset.x, -maxOffset, maxOffset));
             }
         }
@@ -111,8 +106,6 @@ namespace Script
 
         private void _SelectLeft()
         {
-            // Debug.Log("Left");
-
             _StartMove(-maxOffset - edgeMoveOffset, moveTime, NewCard);
             onSelectLeft?.Invoke();
         }
@@ -130,8 +123,6 @@ namespace Script
 
         private void _SelectRight()
         {
-            // Debug.Log("Right");
-
             onSelectRight?.Invoke();
             _StartMove(maxOffset + edgeMoveOffset, moveTime, NewCard);
         }
@@ -149,15 +140,11 @@ namespace Script
 
         private void _BackToCenter()
         {
-            // Debug.Log("Center");
-
             _StartMove(_startOriginPos.x, moveTime);
         }
 
         private void NewCard()
         {
-            // Debug.Log("New Card");
-
             onNewCard?.Invoke();
             _StartMove(_startOriginPos.x, 0);
         }
@@ -170,7 +157,6 @@ namespace Script
         }
 
         private Action _moveFinished = null;
-
         private void _StartMove(float posX, float time, Action onFinish = null)
         {
             _startDropPos = targetTrans.anchoredPosition.x;
