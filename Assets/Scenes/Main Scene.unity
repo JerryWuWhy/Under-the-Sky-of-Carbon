@@ -552,7 +552,7 @@ MonoBehaviour:
     money: 150
     technology: 50
     prestige: 0
-    carbon: 4
+    carbon: 8
     nomoney: 0
     notechnology: 0
     noprestige: 5
@@ -561,12 +561,12 @@ MonoBehaviour:
     yestext: "\u987A\u4ECE\u5927\u6D41\u3002"
     notext: "\u6211\u770B\u8FD8\u662F\u7B97\u4E86..."
   - id: 2
-    money: -50
+    money: -100
     technology: 50
     prestige: 30
     carbon: 0
     nomoney: 0
-    notechnology: -20
+    notechnology: -30
     noprestige: 0
     nocarbon: 0
     text: "\u6709\u4E00\u540D\u79D1\u5B66\u5BB6\u58F0\u79F0\u53EA\u8981\u7ED9\u4E88\u81EA\u5DF1\u4E00\u7B14\u79D1\u7814\u8D44\u91D1\uFF0C\u5C31\u53EF\u4EE5\u7814\u53D1\u51FA\u524D\u65E0\u53E4\u4EBA\u540E\u65E0\u6765\u8005\uFF0C\u8D85\u7EA7\u65E0\u654C\u9AD8\u6548\u7684\u65B0\u5F0F\u53D1\u7535\u673A\u3002\u611F\u89C9\u4E0D\u592A\u9760\u8C31\u3002"
@@ -575,9 +575,9 @@ MonoBehaviour:
   - id: 3
     money: 150
     technology: 0
-    prestige: -40
+    prestige: -60
     carbon: 0
-    nomoney: -50
+    nomoney: -100
     notechnology: 0
     noprestige: 100
     nocarbon: 0
@@ -585,14 +585,14 @@ MonoBehaviour:
     yestext: "\u8D5A\u94B1\uFF0C\u723D! "
     notext: "\u767E\u59D3\u597D\u624D\u662F\u771F\u7684\u597D\u3002"
   - id: 4
-    money: -80
+    money: -150
     technology: 50
     prestige: 30
-    carbon: -3
+    carbon: -6
     nomoney: 100
     notechnology: 0
     noprestige: 0
-    nocarbon: 3
+    nocarbon: 6
     text: "\u57CE\u5E02\u7535\u6C14\u5316\u6539\u9020\u7EDD\u5BF9\u662F\u4E2A\u660E\u667A\u4E4B\u4E3E\uFF0C\u6211\u7684\u670B\u53CB\u3002\u4F46\u662F\u5B83\u6240\u9700\u8981\u5BA1\u6279\u7684\u9884\u7B97\u5C31\u6CA1\u90A3\u4E48\u8BA8\u559C\u4E86\u3002"
     yestext: "\u901A\u8FC7\u5BA1\u6279\u3002"
     notext: "\u6D6A\u8D39\u94B1\u3002"
@@ -600,11 +600,11 @@ MonoBehaviour:
     money: 0
     technology: 0
     prestige: 20
-    carbon: -2
+    carbon: -4
     nomoney: 80
     notechnology: 0
     noprestige: 0
-    nocarbon: 4
+    nocarbon: 8
     text: "\u7B80\u7B80\u5355\u5355\u7684\u4E00\u6B21\u5168\u6C11\u690D\u6811\u6D3B\u52A8\u3002\u4F5C\u4E3A\u5E02\u957F\u4F60\u8EAB\u5148\u58EB\u5352\uFF0C\u4E00\u4E2A\u4EBA\u79CD\u4E86\u4E94\u5341\u9897\u3002\u5E02\u6C11\u4EEC\u611F\u53F9\u201C\u8FD9\u7B80\u76F4\u5C31\u662F\u8D85\u4EBA\u201D\u3002\n"
     yestext: "\u6B63\u662F\u5728\u4E0B\u3002"
     notext: "\u628A\u521A\u79CD\u4E0B\u7684\u6811\u5168\u780D\u6389\u53D1\u7535! "
@@ -624,8 +624,8 @@ MonoBehaviour:
     money: 75
     technology: 50
     prestige: 0
-    carbon: 5
-    nomoney: -40
+    carbon: 10
+    nomoney: -80
     notechnology: 0
     noprestige: 0
     nocarbon: -3
@@ -633,14 +633,14 @@ MonoBehaviour:
     yestext: "\u6211\u4EEC\u9700\u8981\u66F4\u591A\u5F3A\u800C\u6709\u529B\u7684\u5F15\u64CE\uFF01"
     notext: "\u989D\uFF0C\u597D\u50CF\u5B83\u7834\u4EA7\u4E86\u6765\u7740\uFF1F"
   - id: 8
-    money: -50
-    technology: -100
+    money: -100
+    technology: -150
     prestige: 40
-    carbon: -3
+    carbon: -6
     nomoney: 30
     notechnology: 0
-    noprestige: -40
-    nocarbon: 2
+    noprestige: -60
+    nocarbon: 5
     text: "\u6709\u65F6\u5019\u4E00\u70B9\u70B9\u5C0F\u5C0F\u7684\u4ED8\u51FA\u5C31\u80FD\u6539\u53D8\u5F88\u591A\u3002\u7ED9\u9694\u58C1\u53D1\u7535\u5382\u88C5\u51E0\u4E2A\u65B0\u6DA1\u8F6E\u5566\uFF0C\u7ED9\u8D5A\u7684\u76C6\u6EE1\u94B5\u6EE1\u5BCC\u4EBA\u7F5A\u70B9\u7A0E\u6B3E\u5566...
       \u603B\u4E4B\u4F60\u5F97\u8BA9\u6C11\u4F17\u770B\u51FA\u6765\u4F60\u5728\u5E72\u6D3B\u3002"
     yestext: "\u8FBE\u6210\u6210\u5C31\u201C\u6A21\u8303\u5E02\u957F\u201D\u3002"
@@ -653,39 +653,39 @@ MonoBehaviour:
     nomoney: 0
     notechnology: 0
     noprestige: 0
-    nocarbon: 2
+    nocarbon: 5
     text: "\u65B0\u7684\u4E16\u4EE3\u964D\u4E34\u4E86\uFF01\u79D1\u5B66\u5BB6\u4EEC\u7ADF\u7136\u771F\u7684\u7814\u53D1\u51FA\u4E86\u6BD4\u4F20\u7EDF\u53D1\u52A8\u673A\u9AD8\u6548\u6570\u500D\u7684\u53D1\u7535\u673A\u3002\u8FD9\u4E0B\u5B50\u7535\u8F66\u518D\u4E5F\u4E0D\u4F1A\u56E0\u4E3A\u51AC\u5929\u6253\u4E86\u4E2A\u76F9\u5C31\u5BFC\u81F4\u7535\u6C60\u6F0F\u5149\u5149\u7684\u60C5\u51B5\u4E86\u3002\u800C\u4E14\u66F4\u91CD\u8981\u7684\u662F\uFF0C\u52A8\u529B\u8FD8\u500D\u513F\u68D2\u3002\u552F\u4E00\u7684\u7F3A\u70B9\u662F\u76EE\u524D\u8FD8\u672A\u91CF\u4EA7\uFF0C\u4EF7\u683C\u6709\u5730\u5C0F\u8D35...
       \u4F46\u4F5C\u4E3A\u5FB7\u9AD8\u671B\u91CD\u7684\u5E02\u957F\uFF0C\u4F60\u4E00\u5B9A\u80FD\u8BF4\u670D\u8F66\u5546\u4EEC\u7ED9\u6C11\u4F17\u6253\u4E2A\u6298\u7684\uFF0C\u5BF9\u5427\uFF1F"
     yestext: "\u79D1\u5B66\u7684\u5947\u8FF9\uFF01"
     notext: "\u6664\uFF0C\u597D\u8D35\u3002"
   - id: 10
-    money: -50
+    money: -100
     technology: 50
     prestige: 0
     carbon: -8
     nomoney: 100
     notechnology: 0
     noprestige: -50
-    nocarbon: 2
+    nocarbon: 5
     text: "\u725B\u987F\u53EA\u662F\u5728\u82F9\u679C\u6811\u4E0B\u5750\u4E86\u4E00\u4F1A\u513F\u5C31\u53D1\u73B0\u4E86\u4E07\u6709\u5F15\u529B\u5B9A\u5F8B\uFF0C\u4F46\u662F\u8FD9\u54E5\u4EEC\u53EF\u662F\u53D1\u73B0\u4E86\u53EF\u63A7\u6838\u805A\u53D8\u3002\u5728\u8DEF\u4E0A\u4ED6\u88AB\u4E00\u5757\u77F3\u5934\u7ECA\u4E86\u4E00\u811A\uFF0C\u7136\u540E\u5C31\u53D1\u73B0\u8FD9\u662F\u4E00\u79CD\u5168\u65B0\u7684\u6838\u805A\u53D8\u5143\u7D20\uFF01\u4F46\u4E0D\u662F\u6240\u6709\u4EBA\u90FD\u61C2\u5F97\u5982\u4F55\u4F7F\u7528\u5B83\u7684\u3002"
     yestext: "\u8FD9\u4E0B\u6211\u4EEC\u7684\u80FD\u6E90\u53D6\u4E4B\u4E0D\u5C3D\u7528\u4E4B\u4E0D\u7AED\u4E86\u3002"
     notext: "\u8FD9\u662F\u5565\uFF0C\u80FD\u5403\u5417\uFF1F"
   - id: 11
-    money: -80
+    money: -150
     technology: 0
     prestige: 30
-    carbon: -4
+    carbon: -6
     nomoney: 50
     notechnology: 0
     noprestige: -60
-    nocarbon: 2
+    nocarbon: 5
     text: "\u6C11\u4F17\u8C03\u67E5\u663E\u793A\u652F\u6301\u7535\u8F66\u7684\u6BD4\u4F8B\u9AD8\u4E8E\u652F\u6301\u4F20\u7EDF\u6CB9\u8F66\u768420\u4E2A\u767E\u5206\u70B9\u3002\u662F\u4FEE\u5EFA\u66F4\u591A\u5145\u7535\u7AD9\u8BA8\u597D\u591A\u6570\u7FA4\u4F53\u8FD8\u662F\u719F\u89C6\u65E0\u7779\u53D6\u51B3\u4E8E\u4F60\u3002"
     yestext: "\u652F\u6301\u3002"
     notext: "\u65E0\u89C6\u3002"
   - id: 12
     money: 0
     technology: 0
-    prestige: -80
+    prestige: -100
     carbon: 0
     nomoney: 0
     notechnology: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
   - id: 13
     money: 0
     technology: 50
-    prestige: -80
+    prestige: -100
     carbon: 0
     nomoney: 0
     notechnology: 0
@@ -724,8 +724,8 @@ MonoBehaviour:
     money: 150
     technology: 50
     prestige: 0
-    carbon: 8
-    nomoney: -50
+    carbon: 10
+    nomoney: -100
     notechnology: 0
     noprestige: 40
     nocarbon: -5
@@ -733,7 +733,7 @@ MonoBehaviour:
     yestext: "\u53D6\u6D88\u5BF9\u5F00\u91C7\u7684\u9650\u5236\u6761\u4EE4\u3002"
     notext: "\u6CA1\u95E8\uFF0C\u8FD9\u7247\u4FDD\u62A4\u533A\u5C31\u662F\u4E0D\u80FD\u78B0\u3002"
   - id: 16
-    money: -50
+    money: -100
     technology: 50
     prestige: 0
     carbon: -5
@@ -748,7 +748,7 @@ MonoBehaviour:
     money: 200
     technology: 0
     prestige: 0
-    carbon: 7
+    carbon: 12
     nomoney: 0
     notechnology: 0
     noprestige: 0
@@ -757,7 +757,7 @@ MonoBehaviour:
     yestext: "\u8349\u6728\u54EA\u91CC\u6709\u77F3\u6CB9\u91CD\u8981\uFF01"
     notext: "\u9690\u7792\u6D88\u606F\uFF0C\u514D\u5F97\u90A3\u4E9B\u5546\u4EBA\u95FB\u7740\u5473\u53C8\u6765\u4E86\u3002"
   - id: 18
-    money: -100
+    money: -150
     technology: 0
     prestige: 40
     carbon: 0
@@ -769,19 +769,19 @@ MonoBehaviour:
     yestext: "\u6B63\u4E49\uFF01\u81EA\u7531\uFF01\u5FEB\u53F7\u53EC\u6240\u6709\u9752\u5E74\u53C2\u519B\u3002"
     notext: "\u4E0E\u6211\u4F55\u5E72\u3002"
   - id: 19
-    money: -80
-    technology: -80
+    money: -150
+    technology: -100
     prestige: 20
-    carbon: -2
+    carbon: -4
     nomoney: 0
     notechnology: 0
     noprestige: 0
-    nocarbon: 4
+    nocarbon: 6
     text: "\u6218\u4E89\u7206\u53D1\u4E86\u3002\u90BB\u56FD\u7684\u6838\u5F39\u5934\u76F4\u63A5\u547D\u4E2D\u4E861349\u516C\u91CC\u5916\u7684\u4E00\u5EA7\u5DE8\u578B\u90FD\u5E02\u3002\u867D\u7136\u672C\u5E02\u6CA1\u6709\u6210\u4E3A\u91CD\u70B9\u5173\u7167\u5BF9\u8C61\uFF0C\u4F46\u662F\u6B8B\u4F59\u7684\u6838\u8F90\u5C04\u53CA\u5176\u5E26\u6765\u7684\u6B21\u7EA7\u78B3\u6392\u653E\u5267\u589E\u5F71\u54CD\u8FD8\u662F\u5E2D\u5377\u4E86\u57CE\u5E02\u3002"
     yestext: "\u79EF\u6781\u7EC4\u7EC7\u963B\u65AD\u884C\u52A8\uFF0C\u4E0D\u8BBA\u4EE3\u4EF7\u51CF\u5C11\u5F71\u54CD\u3002"
     notext: "\u4E0D\u5C31\u662F\u8F90\u5C04\u561B\uFF0C\u7167\u4E00\u7167\u53C8\u4E0D\u4F1A\u66B4\u6BD9\u3002\u6240\u4EE5\u6211\u5BB6\u91CC\u7684\u9632\u8F90\u5C04\u5899\u58C1\u88C5\u597D\u4E86\u6CA1\uFF1F"
   - id: 20
-    money: -100
+    money: -150
     technology: 0
     prestige: 40
     carbon: 0
@@ -793,19 +793,19 @@ MonoBehaviour:
     yestext: "\u884C\u884C\u884C\uFF0C\u62FF\u5B8C\u94B1\u5C31\u8D76\u7D27\u7EE7\u7EED\u5E72\u6D3B\u53BB\u3002"
     notext: "\u7231\u5E72\u4E0D\u5E72\uFF0C\u4F60\u4E0D\u5E72\uFF0C\u6709\u7684\u662F\u4EBA\u6765\u5E72\uFF01"
   - id: 21
-    money: -50
+    money: -100
     technology: 0
     prestige: 20
-    carbon: -3
+    carbon: -5
     nomoney: 100
     notechnology: 0
     noprestige: -25
-    nocarbon: 3
+    nocarbon: 6
     text: "\u7535\u8F66\u7684\u6F6E\u6D41\u5DF2\u7ECF\u6765\u88AD\u3002\u968F\u7740\u6570\u4F4D\u540D\u4EBA\u7684\u9F0E\u529B\u63A8\u8350\uFF0C\u5E02\u6C11\u4EEC\u5BF9\u6B64\u6709\u7740\u65E0\u4E0E\u4F26\u6BD4\u7684\u70ED\u60C5\u3002\u4F46\u8FD9\u53EF\u5C31\u635F\u5BB3\u4E86\u67D0\u4E9B\u4EBA\u7684\u5229\u76CA\u4E86\u3002"
     yestext: "\u63A8\u51FA\u6FC0\u52B1\u8D2D\u4E70\u7535\u8F66\u7684\u4F18\u60E0\u65B9\u6848\uFF0C\u80FD\u51CF\u5C11\u6C61\u67D3\u7684\u5C31\u662F\u597D\u4E1C\u897F\u3002"
     notext: "\u5236\u9020\u5E76\u7092\u4F5C\u7535\u8F66\u7684\u7535\u6C60\u7206\u70B8\u4E8B\u4EF6\uFF0C\u5229\u7528\u80A1\u5E02\u7684\u6CE2\u52A8\u4E0E\u67D0\u4E9B\u4EBA\u4E00\u8D77\u5927\u8D5A\u4E00\u7B14\u3002"
   - id: 22
-    money: -100
+    money: -150
     technology: 100
     prestige: 40
     carbon: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
     money: 0
     technology: 50
     prestige: 0
-    carbon: -3
+    carbon: -5
     nomoney: 50
     notechnology: 50
     noprestige: 0
@@ -829,11 +829,11 @@ MonoBehaviour:
     yestext: "\u597D\uFF0C\u5C31\u8FD9\u4E48\u529E\u3002"
     notext: "\u5C01\u9501\u6D88\u606F\uFF0C\u5C06\u9668\u77F3\u7814\u7A76\u4E00\u756A\u540E\u4EE5\u5929\u4EF7\u5356\u7ED9\u201C\u6536\u85CF\u5BB6\u201D\u3002\u4F60\u95EE\u6211\u4ED6\u771F\u7684\u662F\u6536\u85CF\u5BB6\u5417\uFF1F\u6709\u4E9B\u4E8B\u77E5\u9053\u4E00\u534A\u5C31\u597D\u4E86\u3002"
   - id: 24
-    money: -50
+    money: -100
     technology: 50
     prestige: 0
-    carbon: -2
-    nomoney: -50
+    carbon: -5
+    nomoney: -100
     notechnology: 0
     noprestige: 30
     nocarbon: -5
@@ -848,24 +848,24 @@ MonoBehaviour:
     nomoney: 100
     notechnology: 0
     noprestige: 0
-    nocarbon: 3
+    nocarbon: 6
     text: "\u5C31\u5728\u521A\u521A\u4E00\u5BB6\u5DE5\u5382\u88AB\u8C03\u67E5\u51FA\u79D8\u5BC6\u8D85\u91CF\u6392\u653E\u6570\u5341\u5E74\uFF0C\u5982\u679C\u4F60\u8FD9\u4E2A\u8FD9\u4E2A\u6B63\u4E49\u7684\u4EBA\u6C11\u536B\u58EB\u613F\u610F\u7684\u8BDD\uFF0C\u5B98\u53F8\u548C\u7F5A\u6B3E\u591F\u4ED6\u4EEC\u5403\u4E00\u58F6\u3002"
     yestext: "\u4EFB\u4F55\u90AA\u6076\u7EC8\u5C06\u88AB\u7EF3\u4E4B\u4EE5\u6CD5\uFF01"
     notext: "\u5382\u957F\uFF0C\u4F60\u4E5F\u4E0D\u60F3\u4F60\u7684\u5DE5\u5382\u5012\u95ED\u5427\uFF1F"
   - id: 26
-    money: -50
+    money: -100
     technology: 0
     prestige: 20
     carbon: 0
     nomoney: 100
     notechnology: 0
     noprestige: -20
-    nocarbon: 5
+    nocarbon: 10
     text: "\u57CE\u5E02\u897F\u8FB9\u7684\u68EE\u6797\u56E0\u4E3A\u4E00\u573A\u66B4\u98CE\u96E8\u88AB\u96F7\u7535\u51FB\u4E2D\uFF0C\u71C3\u8D77\u718A\u718A\u5927\u706B\u3002\u597D\u5728\u65B9\u5706\u51E0\u767E\u516C\u91CC\u5185\u90FD\u6CA1\u6709\u4EBA\u5C45\u4F4F\u3002"
     yestext: "\u6700\u597D\u8FD8\u662F\u8C03\u52A8\u6240\u6709\u6D88\u9632\u8D44\u6E90\u706D\u706B\u3002"
     notext: "\u71C3\u70E7\u5427\uFF01\u8FD9\u6837\u5C31\u6709\u66F4\u591A\u8015\u5730\u54AF\u3002"
   - id: 27
-    money: -50
+    money: -100
     technology: 0
     prestige: 50
     carbon: 0
@@ -880,11 +880,11 @@ MonoBehaviour:
     money: 0
     technology: 0
     prestige: 30
-    carbon: -2
+    carbon: -4
     nomoney: 50
     notechnology: 50
     noprestige: -50
-    nocarbon: 3
+    nocarbon: 6
     text: "\u8054\u5408\u56FD\u6700\u8FD1\u53C8\u5236\u5B9A\u4E86\u4E00\u4E2A\u5947\u602A\u7684\u6761\u7EA6\uFF0C\u597D\u50CF\u53EB\u4EC0\u4E48...\u9ECE\u5DF4\u6761\u7EA6\uFF1F"
     yestext: "\u5927\u5BB6\u4E00\u8D77\u7B7E\u90A3\u591A\u662F\u4E00\u4EF6\u7F8E\u4E8B\u554A\u3002"
     notext: "\u6761\u7EA6\u548C\u9650\u5236\u53EA\u4F1A\u8BA9\u6211\u4EEC\u6545\u6B65\u81EA\u5C01\u3002"
@@ -892,44 +892,44 @@ MonoBehaviour:
     money: 0
     technology: 0
     prestige: -50
-    carbon: 2
+    carbon: 5
     nomoney: -50
     notechnology: 0
     noprestige: 30
-    nocarbon: -2
+    nocarbon: -4
     text: "\u60CA\u5929\u7206\u6599\uFF01\u5E02\u533A\u9644\u8FD1\u7684\u5C9B\u798F\u6838\u7535\u7AD9\u53D1\u751F\u4E86\u4E8C\u7EA7\u53CD\u5E94\u5806\u6CC4\u9732\u548C\u7206\u70B8\uFF0C\u4F26\u7434\u503C\u5DF2\u7ECF\u8D85\u8FC7\u4EEA\u5668\u68C0\u6D4B\u9650\u5236\u4E14\u751F\u6001\u7CFB\u7EDF\u5D29\u6E83\u5BFC\u81F4\u78B3\u6392\u653E\u5931\u63A7\u3002"
     yestext: "\u6CA1\u6709\u4EC0\u4E48\u662F\u97A0\u8EAC\u89E3\u51B3\u4E0D\u4E86\u7684\u3002"
     notext: "\u8D76\u7D27\u4ECE\u7269\u7406\u5C42\u9762\u4E0A\u963B\u65AD\u8FD9\u5EA7\u6838\u7535\u7AD9\uFF01"
   - id: 30
-    money: -50
+    money: -100
     technology: 0
     prestige: 40
     carbon: 0
     nomoney: 0
     notechnology: 0
     noprestige: 0
-    nocarbon: 3
+    nocarbon: 6
     text: "\u77F3\u6CB9\u5FFD\u7136\u53D8\u5F97\u6BD4\u6C34\u8FD8\u4FBF\u5B9C\u4E86...
       \u6CA1\u6709\u628A\u7535\u8F66\u5356\u6389\u7684\u4EBA\u5C31\u5077\u7740\u4E50\u5427\u3002"
     yestext: "\u963B\u6B62\u4E00\u5207\u4ECE\u5916\u90E8\u8FDB\u53E3\u7684\u539F\u6CB9\uFF0C\u7A33\u5B9A\u4EF7\u683C\u3002"
     notext: "\u5927\u5BB6\u5FEB\u628A\u7535\u8F66\u5356\u4E86\u62A2\u71C3\u6CB9\u8F66\u554A\uFF01"
   - id: 31
-    money: -50
+    money: -100
     technology: 0
     prestige: 40
-    carbon: -2
+    carbon: -4
     nomoney: -50
     notechnology: 0
     noprestige: 20
-    nocarbon: -4
+    nocarbon: -6
     text: "\u4E2D\u592E\u653F\u5E9C\u8981\u6C42\u672C\u5E02\u8FDB\u884C\u4E00\u6B21\u5F62\u5F0F\u4E0D\u9650\u7684\u73AF\u4FDD\u5BA3\u4F20\u6D3B\u52A8\uFF0C\u76F8\u5173\u65B9\u6848\u5DF2\u7ECF\u653E\u5728\u529E\u516C\u684C\u4E0A\u3002"
     yestext: "\u5C06\u672C\u5E02\u6743\u5A01\u9F50\u805A\u4E00\u5802\uFF0C\u5E76\u9080\u8BF7\u5609\u5BBE\u8FDB\u884C\u6F14\u8BB2\u5BA3\u4F20\u3002"
     notext: "\u5728\u6C11\u95F4\u540C\u65F6\u4E3E\u884C\u591A\u4E2A\u73AF\u4FDD\u516C\u76CA\u62BD\u5956\u6D3B\u52A8\uFF0C\u5438\u5F15\u4EBA\u4EEC\u79EF\u6781\u53C2\u4E0E\u3002"
   - id: 32
-    money: -50
+    money: -100
     technology: 50
     prestige: 0
-    carbon: -2
+    carbon: -4
     nomoney: 0
     notechnology: 0
     noprestige: 0
@@ -974,10 +974,10 @@ MonoBehaviour:
     yestext: "\uFF08\u4E0D\u7518\u793A\u5F31\uFF09\u6211\u4EEC\u4E5F\u6392\u56DE\u53BB\uFF01"
     notext: "\u5728\u6CA1\u6709\u786E\u51FF\u7684\u8BC1\u636E\u524D\uFF0C\u53EA\u80FD\u5148\u5403\u8FD9\u4E2A\u54D1\u5DF4\u4E8F\u4E86\u3002"
   - id: 36
-    money: -50
+    money: -100
     technology: 100
     prestige: 0
-    carbon: -2
+    carbon: -4
     nomoney: 0
     notechnology: 0
     noprestige: -50
@@ -986,7 +986,7 @@ MonoBehaviour:
     yestext: "\u4F5C\u5E9F\u8BBE\u8BA1\u56FE\uFF0C\u91CD\u65B0\u7814\u53D1\u3002"
     notext: "\u7741\u4E00\u53EA\u773C\u95ED\u4E00\u53EA\u773C\u3002"
   - id: 36
-    money: -50
+    money: -100
     technology: 100
     prestige: 50
     carbon: -2
@@ -998,19 +998,19 @@ MonoBehaviour:
     yestext: "\u63D0\u4F9B\u8D44\u91D1\u8865\u8D34\uFF0C\u9F13\u52B1\u8F66\u5546\u7EE7\u7EED\u5F00\u53D1\u65B0\u4E00\u4EE3\u6280\u672F\u826F\u6027\u7ADE\u4E89\u3002"
     notext: "\u4E0E\u5176\u4E2D\u4E00\u4E9B\u8F66\u5546\u5C55\u5F00\u5408\u4F5C\uFF0C\u9A71\u9010\u4E00\u90E8\u5206\u7ADE\u4E89\u5BF9\u624B\u7A33\u5B9A\u4EF7\u683C\u3002"
   - id: 38
-    money: -80
+    money: -100
     technology: 100
     prestige: 0
     carbon: -2
     nomoney: 0
     notechnology: 0
     noprestige: 30
-    nocarbon: 0
+    nocarbon: 2
     text: "\u8FD9\u662F\u6750\u6599\u5B66\u7684\u4E00\u6B21\u91CD\u5927\u7A81\u7834\u3002\u76F8\u8F83\u4E8E\u4F20\u7EDF\u7684\u9502\u7535\u6C60\uFF0C\u94C5\u7535\u6C60\uFF0C\u8FD9\u4E2A\u65B0\u5143\u7D20\u53EF\u9AD8\u6548\u591A\u4E86\u3002\u8FD9\u79CD\u80FD\u6E90\u4E0D\u4EC5\u53EF\u4EE5\u51CF\u5C11\u6392\u653E\uFF0C\u8FD8\u80FD\u6CBB\u6108\u653F\u6CBB\u5BB6\u7684\u5931\u7720\u75C7\u3002\u4E0D\u8FC7\uFF0C\u4F60\u5F97\u5148\u89E3\u51B3\u653F\u5E9C\u8D22\u653F\u7684\u8D2B\u8840\u75C7\u624D\u884C\u3002"
     yestext: "\u54AC\u54AC\u7259\u503E\u6CE8\u8D44\u91D1\u7814\u7A76\u3002"
     notext: "\u6211\u89C9\u5F97\u7EB3\u7A0E\u4EBA\u4E0D\u4F1A\u540C\u610F\u53BB\u7814\u7A76\u4E00\u4E2A\u5C1A\u6CA1\u6709\u5B9A\u8BBA\u7684\u4E1C\u897F\u3002"
   - id: 39
-    money: -50
+    money: -100
     technology: 0
     prestige: 50
     carbon: 0
@@ -1022,14 +1022,14 @@ MonoBehaviour:
     yestext: "\u5B9E\u884C\u6551\u6D4E\u91D1\u8865\u52A9\u3002"
     notext: "\u5C06\u501F\u8D37\u7A0E\u7387\u4E0A\u8C03\u3002\u6CA1\u94B1\uFF1F\u90A3\u5C31\u628A\u4F60\u4EEC\u7684\u623F\u5B50\u4E56\u4E56\u62B5\u62BC\u51FA\u6765\u5427\u3002"
   - id: 40
-    money: -50
+    money: -100
     technology: 0
     prestige: 0
-    carbon: -3
+    carbon: -4
     nomoney: 0
     notechnology: 0
     noprestige: 0
-    nocarbon: 2
+    nocarbon: 5
     text: "\u51B0\u96F9\u7EA2\u8272\u9884\u8B66\uFF1A\u672C\u5E02\u9884\u8BA1\u5C06\u57282\u5929\u540E\u906D\u9047\u53F2\u65E0\u524D\u4F8B\u7684\u7279\u5927\u51B0\u96F9\u3002\u5C4A\u65F6\u51B0\u96F9\u534A\u5F84\u9884\u4F30\u4F1A\u5927\u4E8E5\u5398\u7C73\u3002"
     yestext: "\u5F97\u5C06\u6211\u4EEC\u7684\u5B9D\u8D1D\u592A\u9633\u80FD\u9635\u5217\u4FDD\u62A4\u8D77\u6765\u3002"
     notext: "\uFF08\u6234\u4E0A\u5934\u76D4\uFF09\u3002"
