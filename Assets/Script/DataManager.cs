@@ -14,9 +14,9 @@ public class DataManager : MonoBehaviour
     {
         Inst = this;
         _dataContainer = Storage.GetContainer("Data");
-        money = _dataContainer.Get("money", 200);
-        technology = _dataContainer.Get("technology", 200);
-        prestige = _dataContainer.Get("prestige", 200);
+        money = _dataContainer.Get("money", 333);
+        technology = _dataContainer.Get("technology", 333);
+        prestige = _dataContainer.Get("prestige", 333);
         carbon = _dataContainer.Get("carbon", 50);
         _dataContainer.Save();
     }
@@ -32,7 +32,7 @@ public class DataManager : MonoBehaviour
 
     public void Restart()
     {
-        SetData(200, 200, 200, 50);
+        SetData(333, 333, 333, 50);
         Resource.Instance.LoadResources();
         Carbon.Instance.Ending.SetActive(false);
     }
