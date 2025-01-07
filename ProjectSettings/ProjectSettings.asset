@@ -162,7 +162,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DefaultCompany.com.unity.template.mobile2D
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
-    Standalone: com.DefaultCompany.com.unity.template.mobile2D
+    Standalone: com.jerry.carbonize
     iPhone: com.jerry.demo
     tvOS: com.DefaultCompany.com.unity.template.mobile2D
   buildNumber:
