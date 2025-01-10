@@ -170,9 +170,11 @@ public class JenkinsBuild
             PlayerSettings.Android.keystoreName = GetArg<string>("KeystorePath");
         }
 
-        // PlayerSettings.Android.splitApplicationBinary = EditorUserBuildSettings.buildAppBundle;
-        // Unity 版本大于 2022时，使用下面的代码
+#if UNITY_2023_1_OR_NEWER
         PlayerSettings.Android.splitApplicationBinary = EditorUserBuildSettings.buildAppBundle;
+#else
+        // PlayerSettings.Android.splitApplicationBinary = EditorUserBuildSettings.buildAppBundle;
+#endif
 
         PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android,
             GetArg<bool>("UseMono") ? ScriptingImplementation.Mono2x : ScriptingImplementation.IL2CPP);
