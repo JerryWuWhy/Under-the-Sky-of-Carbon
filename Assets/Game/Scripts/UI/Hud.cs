@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Scripts.Ux;
 using Habby.Localization;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,8 +10,14 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 
 	public Slider carbonSlider;
 	public Image moneyFill;
+	public FeedbackPlayer moneyUpFeedback;
+	public FeedbackPlayer moneyDownFeedback;
 	public Image techFill;
+	public FeedbackPlayer techUpFeedback;
+	public FeedbackPlayer techDownFeedback;
 	public Image prestigeFill;
+	public FeedbackPlayer prestigeUpFeedback;
+	public FeedbackPlayer prestigeDownFeedback;
 	public RectTransform cardTrans;
 	public RectTransform leftChoiceTrans;
 	public RectTransform rightChoiceTrans;
@@ -101,6 +108,13 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 
 	public void _PrepareLeft(bool isPrepare) {
 		if (isPrepare != _isPrepareLeft) {
+			if (isPrepare) {
+				PlayFeedback(GameManager.Inst.CurrentCard.leftMoney, moneyUpFeedback, moneyDownFeedback);
+				PlayFeedback(GameManager.Inst.CurrentCard.leftTech, techUpFeedback, techDownFeedback);
+				PlayFeedback(GameManager.Inst.CurrentCard.leftPrestige, prestigeUpFeedback, prestigeDownFeedback);
+			} else {
+				ResetFeedbacks();
+			}
 			_isPrepareLeft = isPrepare;
 		}
 	}
@@ -112,16 +126,47 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 
 	private void _PrepareRight(bool isPrepare) {
 		if (isPrepare != _isPrepareRight) {
+			if (isPrepare) {
+				PlayFeedback(GameManager.Inst.CurrentCard.rightMoney, moneyUpFeedback, moneyDownFeedback);
+				PlayFeedback(GameManager.Inst.CurrentCard.rightTech, techUpFeedback, techDownFeedback);
+				PlayFeedback(GameManager.Inst.CurrentCard.rightPrestige, prestigeUpFeedback, prestigeDownFeedback);
+			} else {
+				ResetFeedbacks();
+			}
 			_isPrepareRight = isPrepare;
 		}
 	}
 
+	private void PlayFeedback(float value, FeedbackPlayer upPlayer, FeedbackPlayer downPlayer) {
+		if (value < 0) {
+			upPlayer.Reset();
+			downPlayer.Play();
+		} else if (value > 0) {
+			downPlayer.Reset();
+			upPlayer.Play();
+		} else {
+			upPlayer.Reset();
+			downPlayer.Reset();
+		}
+	}
+
+	private void ResetFeedbacks() {
+		moneyDownFeedback.Reset();
+		moneyUpFeedback.Reset();
+		techDownFeedback.Reset();
+		techUpFeedback.Reset();
+		prestigeDownFeedback.Reset();
+		prestigeUpFeedback.Reset();
+	}
+
 	private void _BackToCenter() {
+		ResetFeedbacks();
 		_StartMove(_startOriginPos.x, dropDuration);
 	}
 
 	private void NewCard() {
 		UpdateCard();
+		ResetFeedbacks();
 		_StartMove(_startOriginPos.x, 0);
 	}
 

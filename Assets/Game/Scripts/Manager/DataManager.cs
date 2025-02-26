@@ -2,16 +2,24 @@ using Habby.Storage;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour {
+	public static DataManager Inst { get; private set; }
+
 	public int money;
 	public int tech;
 	public int prestige;
 	public int carbon;
 	private StorageContainer _dataContainer;
-	public static DataManager Inst { get; private set; }
+	private StorageContainer _settingsContainer;
+
+	public StorageProperty<bool> MusicOn { get; private set; }
+	public StorageProperty<bool> SfxOn { get; private set; }
 
 	private void Awake() {
 		Inst = this;
 		_dataContainer = Storage.GetContainer("Data");
+		_settingsContainer = Storage.GetContainer("Settings");
+		MusicOn = _settingsContainer.Get<bool>("MusicOn");
+		SfxOn = _settingsContainer.Get<bool>("SfxOn");
 	}
 
 	public void LoadData() {

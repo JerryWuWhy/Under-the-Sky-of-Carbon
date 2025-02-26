@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour {
 		Application.targetFrameRate = 60;
 	}
 
-	private void Start() {
-		// StartGame();
-	}
-
 	public void StartGame() {
 		GameOver = false;
 		DataManager.Inst.LoadData();
