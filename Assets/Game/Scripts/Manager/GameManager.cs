@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour {
 
 	public CardConfig CurrentCard { get; private set; }
 	public CardConfig NextCard { get; private set; }
+	public float CarbonPercent => 1f - (float) DataManager.Inst.carbon / ConfigManager.Inst.maxCarbon;
+	public float MoneyPercent => (float) DataManager.Inst.money / ConfigManager.Inst.maxMoney;
+	public float TechPercent => (float) DataManager.Inst.tech / ConfigManager.Inst.maxTech;
+	public float PrestigePercent => (float) DataManager.Inst.prestige / ConfigManager.Inst.maxPrestige;
 	public bool GameOver { get; private set; }
 
 	private void Awake() {
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour {
 		SwitchCard();
 		lobby.gameObject.SetActive(false);
 		hud.gameObject.SetActive(true);
+		hud.StartGame();
 	}
 
 	public void ShowLobby() {

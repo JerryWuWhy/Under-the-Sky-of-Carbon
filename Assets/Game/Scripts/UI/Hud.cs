@@ -45,15 +45,19 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	private float _targetDropPos;
 	private Action _moveFinished;
 
-	public void Awake() {
+	private void Awake() {
 		Instance = this;
 		_trans = transform as RectTransform;
 		_startOriginPos = cardTrans.anchoredPosition;
 	}
 
-	private void OnEnable() {
-		SetTargetPos(0f);
+	public void StartGame() {
+		carbonSlider.value = GameManager.Inst.CarbonPercent;
+		moneyFill.fillAmount = GameManager.Inst.MoneyPercent;
+		techFill.fillAmount = GameManager.Inst.TechPercent;
+		prestigeFill.fillAmount = GameManager.Inst.PrestigePercent;
 		UpdateCard();
+		SetTargetPos(0f);
 	}
 
 	private Vector2 GetEventPos(PointerEventData eventData) {
@@ -231,13 +235,9 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 		if (_isMoving) {
 			_Moving();
 		}
-		carbonSlider.value = Mathf.Lerp(
-			carbonSlider.value, 1f - (float) DataManager.Inst.carbon / ConfigManager.Inst.maxCarbon, Time.deltaTime * 5f);
-		moneyFill.fillAmount = Mathf.Lerp(
-			moneyFill.fillAmount, (float) DataManager.Inst.money / ConfigManager.Inst.maxMoney, Time.deltaTime * 5f);
-		techFill.fillAmount = Mathf.Lerp(
-			techFill.fillAmount, (float) DataManager.Inst.tech / ConfigManager.Inst.maxTech, Time.deltaTime * 5f);
-		prestigeFill.fillAmount = Mathf.Lerp(
-			prestigeFill.fillAmount, (float) DataManager.Inst.prestige / ConfigManager.Inst.maxPrestige, Time.deltaTime * 5f);
+		carbonSlider.value = Mathf.Lerp(carbonSlider.value, GameManager.Inst.CarbonPercent, Time.deltaTime * 5f);
+		moneyFill.fillAmount = Mathf.Lerp(moneyFill.fillAmount, GameManager.Inst.MoneyPercent, Time.deltaTime * 5f);
+		techFill.fillAmount = Mathf.Lerp(techFill.fillAmount, GameManager.Inst.TechPercent, Time.deltaTime * 5f);
+		prestigeFill.fillAmount = Mathf.Lerp(prestigeFill.fillAmount, GameManager.Inst.PrestigePercent, Time.deltaTime * 5f);
 	}
 }

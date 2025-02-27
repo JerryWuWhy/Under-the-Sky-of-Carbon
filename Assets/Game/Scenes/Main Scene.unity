@@ -478,7 +478,7 @@ MonoBehaviour:
   choiceLeftDesc: {fileID: 1947900690}
   choiceRightTitle: {fileID: 295048039}
   choiceRightDesc: {fileID: 711720359}
-  minOffset: 100
+  minOffset: 50
   maxOffset: 500
   dropOffset: 500
   dropDuration: 0.2
