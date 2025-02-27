@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager Inst { get; private set; }
-	public GameObject lobby;
+	public Lobby lobby;
 	public Hud hud;
 	public Ending ending;
 
@@ -15,16 +15,21 @@ public class GameManager : MonoBehaviour {
 		Application.targetFrameRate = 60;
 	}
 
+	private void Start() {
+		lobby.Refresh();
+	}
+
 	public void StartGame() {
 		GameOver = false;
 		DataManager.Inst.LoadData();
 		SwitchCard();
-		lobby.SetActive(false);
+		lobby.gameObject.SetActive(false);
 		hud.gameObject.SetActive(true);
 	}
 
 	public void ShowLobby() {
-		lobby.SetActive(true);
+		lobby.Refresh();
+		lobby.gameObject.SetActive(true);
 		hud.gameObject.SetActive(false);
 		ending.gameObject.SetActive(false);
 	}
@@ -65,23 +70,29 @@ public class GameManager : MonoBehaviour {
 		if (DataManager.Inst.carbon <= 0) {
 			if (DataManager.Inst.money >= DataManager.Inst.prestige &&
 			    DataManager.Inst.money >= DataManager.Inst.tech) {
+				DataManager.Inst.UnlockEnding(1);
 				ending.ShowEnding(1);
 			} else if (DataManager.Inst.tech >= DataManager.Inst.money &&
 			           DataManager.Inst.tech >= DataManager.Inst.prestige) {
+				DataManager.Inst.UnlockEnding(2);
 				ending.ShowEnding(2);
 			} else if (DataManager.Inst.prestige >= DataManager.Inst.money &&
 			           DataManager.Inst.prestige >= DataManager.Inst.tech) {
+				DataManager.Inst.UnlockEnding(3);
 				ending.ShowEnding(3);
 			}
 		} else if (DataManager.Inst.carbon >= ConfigManager.Inst.maxCarbon) {
 			if (DataManager.Inst.money >= DataManager.Inst.prestige &&
 			    DataManager.Inst.money >= DataManager.Inst.tech) {
+				DataManager.Inst.UnlockEnding(4);
 				ending.ShowEnding(4);
 			} else if (DataManager.Inst.tech >= DataManager.Inst.money &&
 			           DataManager.Inst.tech >= DataManager.Inst.prestige) {
+				DataManager.Inst.UnlockEnding(5);
 				ending.ShowEnding(5);
 			} else if (DataManager.Inst.prestige >= DataManager.Inst.money &&
 			           DataManager.Inst.prestige >= DataManager.Inst.tech) {
+				DataManager.Inst.UnlockEnding(6);
 				ending.ShowEnding(6);
 			}
 		}

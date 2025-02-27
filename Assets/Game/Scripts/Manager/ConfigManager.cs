@@ -24,6 +24,12 @@ public class CardConfig {
 	[LocalizationKey] public string choiceRightDesc;
 }
 
+[Serializable]
+public class EndingConfig {
+	public int id;
+	[LocalizationKey] public string desc;
+}
+
 public class ConfigManager : MonoBehaviour {
 	public static ConfigManager Inst { get; private set; }
 
@@ -42,12 +48,17 @@ public class ConfigManager : MonoBehaviour {
 	public int maxCarbon = 100;
 
 	public List<CardConfig> cardConfigs;
+	public List<EndingConfig> endingConfigs;
 
 	public CardConfig GetCardConfig(int id) {
-		return cardConfigs.FirstOrDefault(h => h.id == id);
+		return cardConfigs.FirstOrDefault(item => item.id == id);
 	}
 
 	public CardConfig GetRandomCardConfig() {
 		return cardConfigs[Random.Range(0, cardConfigs.Count)];
+	}
+
+	public EndingConfig GetEndingConfig(int id) {
+		return endingConfigs.FirstOrDefault(item => item.id == id);
 	}
 }

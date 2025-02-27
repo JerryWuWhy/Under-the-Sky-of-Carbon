@@ -12,15 +12,15 @@ public class ConfigManagerEditor : Editor {
 	public override void OnInspectorGUI() {
 		base.OnInspectorGUI();
 
-		if (GUILayout.Button("Import Configs")) {
-			_filePath = EditorUtility.OpenFilePanel("Localization", _filePath, "csv");
+		if (GUILayout.Button("Import Cards Configs")) {
+			_filePath = EditorUtility.OpenFilePanel("Import", _filePath, "csv");
 			if (!string.IsNullOrEmpty(_filePath)) {
-				ImportConfigs(File.ReadAllText(_filePath));
+				ImportCardConfigs(File.ReadAllText(_filePath));
 			}
 		}
 	}
 
-	private void ImportConfigs(string text) {
+	private void ImportCardConfigs(string text) {
 		var csv = ParseCsv(text);
 		if (csv.Count <= 1) {
 			return;

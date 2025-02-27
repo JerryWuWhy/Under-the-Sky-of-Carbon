@@ -5,7 +5,8 @@ public class Ending : MonoBehaviour {
 	public LocalizedText endingDesc;
 
 	public void ShowEnding(int id) {
-		endingDesc.Key = $"ENDING_{id}";
+		var endingConfig = ConfigManager.Inst.GetEndingConfig(id);
+		endingDesc.Key = endingConfig.desc;
 		gameObject.SetActive(true);
 	}
 
