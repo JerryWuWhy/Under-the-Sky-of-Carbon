@@ -16,6 +16,7 @@ public class CardConfig {
 	public int rightTech;
 	public int rightPrestige;
 	public int rightCarbon;
+	public string filepath;
 
 	[LocalizationKey] public string desc;
 	[LocalizationKey] public string choiceLeftTitle;

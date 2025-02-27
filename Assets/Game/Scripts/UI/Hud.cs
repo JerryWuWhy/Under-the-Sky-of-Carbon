@@ -18,6 +18,8 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	public Image prestigeFill;
 	public FeedbackPlayer prestigeUpFeedback;
 	public FeedbackPlayer prestigeDownFeedback;
+	public Card currentCard;
+	public Card nextCard;
 	public RectTransform cardTrans;
 	public RectTransform leftChoiceTrans;
 	public RectTransform rightChoiceTrans;
@@ -37,7 +39,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	private bool _isPrepareRight;
 	private bool _isDragging;
 	private Vector2 _startOriginPos;
-	private Vector2 _startClickPoint;
+	private Vector2 _startDragPoint;
 	private bool _isMoving;
 	private float _endDropTime;
 	private float _startDropTime;
@@ -74,7 +76,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 		if (GameManager.Inst.GameOver) {
 			return;
 		}
-		_startClickPoint = GetEventPos(eventData);
+		_startDragPoint = GetEventPos(eventData);
 		_isDragging = true;
 	}
 
@@ -83,7 +85,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 			return;
 		}
 		if (_isDragging) {
-			var offset = GetEventPos(eventData) - _startClickPoint;
+			var offset = GetEventPos(eventData) - _startDragPoint;
 			_PrepareLeft(offset.x < 0 && Mathf.Abs(offset.x) > minOffset);
 			_PrepareRight(offset.x > 0 && Mathf.Abs(offset.x) > minOffset);
 			SetTargetPos(_startOriginPos.x + Mathf.Clamp(offset.x, -maxOffset, maxOffset));
@@ -94,7 +96,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 		if (GameManager.Inst.GameOver) {
 			return;
 		}
-		var offset = GetEventPos(eventData) - _startClickPoint;
+		var offset = GetEventPos(eventData) - _startDragPoint;
 		if (Mathf.Abs(offset.x) > minOffset) {
 			if (offset.x < 0) {
 				_SelectLeft();
@@ -117,7 +119,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 		SoundManager.Inst.PlaySound("DropCard");
 	}
 
-	public void _PrepareLeft(bool isPrepare) {
+	private void _PrepareLeft(bool isPrepare) {
 		if (isPrepare != _isPrepareLeft) {
 			if (isPrepare) {
 				SoundManager.Inst.PlaySound("FlipCard");
@@ -185,6 +187,8 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	}
 
 	private void UpdateCard() {
+		currentCard.Setup(GameManager.Inst.CurrentCard);
+		nextCard.Setup(GameManager.Inst.NextCard);
 		carDesc.Key = GameManager.Inst.CurrentCard.desc;
 		choiceLeftTitle.Key = GameManager.Inst.CurrentCard.choiceLeftTitle;
 		choiceLeftDesc.Key = GameManager.Inst.CurrentCard.choiceLeftDesc;
@@ -237,7 +241,7 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 		_moveFinished?.Invoke();
 	}
 
-	public void Update() {
+	private void Update() {
 		if (_isMoving) {
 			_Moving();
 		}
