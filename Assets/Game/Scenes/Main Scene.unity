@@ -1119,6 +1119,7 @@ MonoBehaviour:
   soundPath: Audios/Sounds/
   musicPath: Audios/Musics/
   sfxBufferCount: 10
+  defaultMusic: Bgm
 --- !u!81 &422030478
 AudioListener:
   m_ObjectHideFlags: 0

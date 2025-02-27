@@ -32,27 +32,37 @@ public class SoundManager : MonoBehaviour {
 	public string soundPath;
 	public string musicPath;
 	public int sfxBufferCount;
+	public string defaultMusic;
 
 	private readonly List<AudioSource> _sfxSources = new();
 	private Dictionary<string, AudioClip> _sfxClips = new();
+	private AudioSource _musicSource;
 
 	private void Awake() {
 		Inst = this;
 		for (var i = 0; i < sfxBufferCount; i++) {
-			var holder = new GameObject("SFX_" + i) {
-				transform = {
-					parent = transform,
-					localPosition = Vector3.zero,
-					localRotation = Quaternion.identity,
-					localScale = Vector3.one
-				}
-			};
-			var sfxSource = holder.AddComponent<AudioSource>();
-			sfxSource.playOnAwake = false;
-			sfxSource.minDistance = 1f;
-			sfxSource.maxDistance = 100f;
-			_sfxSources.Add(sfxSource);
+			_sfxSources.Add(CreateAudioSource("SFX_" + i));
 		}
+		_musicSource = CreateAudioSource("Music");
+		if (!string.IsNullOrEmpty(defaultMusic)) {
+			PlayMusic(defaultMusic);
+		}
+	}
+
+	private AudioSource CreateAudioSource(string name) {
+		var holder = new GameObject(name) {
+			transform = {
+				parent = transform,
+				localPosition = Vector3.zero,
+				localRotation = Quaternion.identity,
+				localScale = Vector3.one
+			}
+		};
+		var audioSource = holder.AddComponent<AudioSource>();
+		audioSource.playOnAwake = false;
+		audioSource.minDistance = 1f;
+		audioSource.maxDistance = 100f;
+		return audioSource;
 	}
 
 	public void PlaySound(string name, float volume = 1f, float pitch = 1f) {
@@ -95,5 +105,20 @@ public class SoundManager : MonoBehaviour {
 				sfxSource.Stop();
 			}
 		}
+	}
+
+	public void PlayMusic(string name, float volume = 1f) {
+		if (_musicSource.isPlaying) {
+			_musicSource.Stop();
+		}
+		_musicSource.clip = Resources.Load<AudioClip>(musicPath + name);
+		_musicSource.loop = true;
+		_musicSource.volume = volume;
+		_musicSource.timeSamples = 0;
+		_musicSource.Play();
+	}
+
+	public void StopMusic() {
+		_musicSource.Stop();
 	}
 }
