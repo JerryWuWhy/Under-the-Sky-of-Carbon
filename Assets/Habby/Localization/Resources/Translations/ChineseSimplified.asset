@@ -23,8 +23,10 @@ MonoBehaviour:
     translation: "\u79D1\u6280"
   - key: TEXT_PRESTIGE
     translation: "\u5A01\u671B"
-  - key: CARD_TITLE_1
-    translation: "\u5361\u6807\u98981"
+  - key: TEXT_POLLUTED
+    translation: "\u6C61\u67D3"
+  - key: TEXT_SUSTAINABLE
+    translation: "\u53EF\u6301\u7EED"
   - key: CARD_DESC_1
     translation: "\u7814\u53D1\u52A8\u529B\u996E\u6599\uFF0C\u53EA\u5DEE\u4E00\u4E2A\u5C0F\u76EE\u6807..."
   - key: CARD_CHOICE_LEFT_TITLE_1
