@@ -108,11 +108,13 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	private void _SelectLeft() {
 		GameManager.Inst.SelectLeft();
 		_StartMove(-maxOffset - dropOffset, dropDuration, NewCard);
+		SoundManager.Inst.PlaySound("DropCard");
 	}
 
 	public void _PrepareLeft(bool isPrepare) {
 		if (isPrepare != _isPrepareLeft) {
 			if (isPrepare) {
+				SoundManager.Inst.PlaySound("FlipCard");
 				PlayFeedback(GameManager.Inst.CurrentCard.leftMoney, moneyUpFeedback, moneyDownFeedback);
 				PlayFeedback(GameManager.Inst.CurrentCard.leftTech, techUpFeedback, techDownFeedback);
 				PlayFeedback(GameManager.Inst.CurrentCard.leftPrestige, prestigeUpFeedback, prestigeDownFeedback);
@@ -126,11 +128,13 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	private void _SelectRight() {
 		GameManager.Inst.SelectRight();
 		_StartMove(maxOffset + dropOffset, dropDuration, NewCard);
+		SoundManager.Inst.PlaySound("DropCard");
 	}
 
 	private void _PrepareRight(bool isPrepare) {
 		if (isPrepare != _isPrepareRight) {
 			if (isPrepare) {
+				SoundManager.Inst.PlaySound("FlipCard");
 				PlayFeedback(GameManager.Inst.CurrentCard.rightMoney, moneyUpFeedback, moneyDownFeedback);
 				PlayFeedback(GameManager.Inst.CurrentCard.rightTech, techUpFeedback, techDownFeedback);
 				PlayFeedback(GameManager.Inst.CurrentCard.rightPrestige, prestigeUpFeedback, prestigeDownFeedback);
@@ -183,18 +187,14 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	}
 
 	private void SetTargetPos(float offsetX) {
-		if (offsetX >= 0f) {
-			var pos = leftChoiceTrans.anchoredPosition;
-			pos.y = Mathf.Lerp(leftChoiceTrans.rect.height, 0f, Mathf.Abs(offsetX / minOffset));
-			leftChoiceTrans.anchoredPosition = pos;
-			leftChoiceTrans.rotation = Quaternion.identity;
-		}
-		if (offsetX <= 0f) {
-			var pos = rightChoiceTrans.anchoredPosition;
-			pos.y = Mathf.Lerp(rightChoiceTrans.rect.height, 0f, Mathf.Abs(offsetX / minOffset));
-			rightChoiceTrans.anchoredPosition = pos;
-			rightChoiceTrans.rotation = Quaternion.identity;
-		}
+		var leftPos = leftChoiceTrans.anchoredPosition;
+		leftPos.y = Mathf.Lerp(leftChoiceTrans.rect.height, 0f, Mathf.Max(offsetX, 0f) / minOffset);
+		leftChoiceTrans.anchoredPosition = leftPos;
+		leftChoiceTrans.rotation = Quaternion.identity;
+		var rightPos = rightChoiceTrans.anchoredPosition;
+		rightPos.y = Mathf.Lerp(rightChoiceTrans.rect.height, 0f, Mathf.Max(-offsetX, 0f) / minOffset);
+		rightChoiceTrans.anchoredPosition = rightPos;
+		rightChoiceTrans.rotation = Quaternion.identity;
 		cardTrans.rotation = Quaternion.Euler(0, 0, -Mathf.Sign(offsetX) * rotateZ.Evaluate(Mathf.Abs(offsetX / maxOffset)));
 		cardTrans.anchoredPosition = new Vector2(offsetX, _startOriginPos.y);
 	}

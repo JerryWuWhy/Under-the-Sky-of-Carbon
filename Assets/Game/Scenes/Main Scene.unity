@@ -1118,18 +1118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundPath: Audios/Sounds/
   musicPath: Audios/Musics/
-  sounds:
-  - name: Tap
-    filename: Tap
-    loop: 0
-    singleton: 0
-    minInterval: 0
-    gameplaySound: 0
-    volume: 1
-    maxDistance: 0
-  musics: []
   sfxBufferCount: 10
-  musicFadingDuration: 1
 --- !u!81 &422030478
 AudioListener:
   m_ObjectHideFlags: 0
