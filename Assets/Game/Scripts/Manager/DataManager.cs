@@ -18,8 +18,8 @@ public class DataManager : MonoBehaviour {
 		Inst = this;
 		_dataContainer = Storage.GetContainer("Data");
 		_settingsContainer = Storage.GetContainer("Settings");
-		MusicOn = _settingsContainer.Get<bool>("MusicOn");
-		SfxOn = _settingsContainer.Get<bool>("SfxOn");
+		MusicOn = _settingsContainer.Get("MusicOn", true);
+		SfxOn = _settingsContainer.Get("SfxOn", true);
 	}
 
 	public void LoadData() {

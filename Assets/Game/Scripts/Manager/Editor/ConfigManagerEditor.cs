@@ -47,6 +47,7 @@ public class ConfigManagerEditor : Editor {
 			cardConfigs.Add(cardConfig);
 		}
 		configManager.cardConfigs = cardConfigs;
+		EditorUtility.SetDirty(configManager);
 	}
 
 

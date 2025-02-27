@@ -9,7 +9,7 @@ public class GenericButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 	public float scale = 0.8f;
 	public bool interactable = true;
 	public UnityEvent onClick;
-	// [SoundName] public string tapSound = "Tap";
+	[SoundName] public string tapSound = "Tap";
 
 	private int _tweenId;
 
@@ -53,7 +53,7 @@ public class GenericButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 	public void OnPointerClick(PointerEventData e) {
 		if (interactable && e.eligibleForClick) {
 			onClick.Invoke();
-			// SoundMgr.Inst.Play2D(tapSound);
+			SoundManager.Inst.Play2D(tapSound);
 		}
 	}
 }

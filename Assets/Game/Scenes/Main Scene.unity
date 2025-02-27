@@ -777,6 +777,7 @@ Transform:
   - {fileID: 1137954619}
   - {fileID: 401998061}
   - {fileID: 1039311375}
+  - {fileID: 422030476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401998060
@@ -841,11 +842,11 @@ MonoBehaviour:
     rightTech: -50
     rightPrestige: -50
     rightCarbon: -10
-    desc: 
-    choiceLeftTitle: 
-    choiceLeftDesc: 
-    choiceRightTitle: 
-    choiceRightDesc: 
+    desc: CARD_DESC_1
+    choiceLeftTitle: CARD_CHOICE_LEFT_TITLE_1
+    choiceLeftDesc: CARD_CHOICE_LEFT_DESC_1
+    choiceRightTitle: CARD_CHOICE_RIGHT_TITLE_1
+    choiceRightDesc: CARD_CHOICE_RIGHT_DESC_1
 --- !u!1 &406131333
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +955,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420221550}
   m_CullTransparentMesh: 1
+--- !u!1 &422030475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422030476}
+  - component: {fileID: 422030477}
+  - component: {fileID: 422030478}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422030476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422030475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 394194812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422030477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422030475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ac7d61a635849ceaf2e322991ec546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPath: Audios/Sounds/
+  musicPath: Audios/Musics/
+  sounds:
+  - name: Tap
+    filename: Tap
+    loop: 0
+    singleton: 0
+    minInterval: 0
+    gameplaySound: 0
+    volume: 1
+    maxDistance: 0
+  musics: []
+  sfxBufferCount: 10
+  musicFadingDuration: 1
+--- !u!81 &422030478
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422030475}
+  m_Enabled: 1
 --- !u!1 &437334437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1143,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  tapSound: Tap
 --- !u!1 &504717292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,6 +3240,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  tapSound: Tap
 --- !u!1 &1429646299
 GameObject:
   m_ObjectHideFlags: 0

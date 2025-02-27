@@ -58,7 +58,6 @@ public class SoundManager : MonoBehaviour {
 	public int sfxBufferCount = 10;
 	public float musicFadingDuration = 1f;
 
-	private Dictionary<Sound, string> _sfxClipNames;
 	private Dictionary<string, SoundConfig> _sfxConfigs;
 	private Dictionary<string, AudioClip> _sfxClips;
 	private Dictionary<string, float> _sfxTimes;
@@ -73,16 +72,11 @@ public class SoundManager : MonoBehaviour {
 	private bool _gameplaySoundMuted;
 	private float _gameplayVolumeScale = 1f;
 
-	public enum Music { }
-
-	public enum Sound { }
-
 	private void Awake() {
 		Inst = this;
 		_trans = transform;
 		_sfxSources = new AudioSource[sfxBufferCount];
 		_sfxTransforms = new Transform[sfxBufferCount];
-		_sfxClipNames = new Dictionary<Sound, string>();
 		_sfxConfigs = new Dictionary<string, SoundConfig>(sounds.Length);
 		_sfxClips = new Dictionary<string, AudioClip>(sounds.Length);
 		_sfxTimes = new Dictionary<string, float>(sounds.Length);
@@ -99,14 +93,10 @@ public class SoundManager : MonoBehaviour {
 
 		_musicSource = gameObject.AddComponent<AudioSource>();
 
-		foreach (var name in Enum.GetNames(typeof(Sound))) {
-			_sfxClipNames.Add((Sound) _sfxClipNames.Count, name);
-		}
-
 		foreach (var soundConfig in sounds) {
 			var soundClip = Resources.Load<AudioClip>(soundPath + soundConfig.filename);
 			if (soundClip == null) {
-				Debug.LogError($"Clip {soundConfig.name}({soundConfig.filename}) not exists");
+				Debug.LogError($"Clip {soundConfig.name}({soundPath + soundConfig.filename}) not exists");
 			}
 			_sfxConfigs.Add(soundConfig.name, soundConfig);
 			_sfxClips.Add(soundConfig.name, soundClip);
@@ -151,30 +141,13 @@ public class SoundManager : MonoBehaviour {
 		return source != null && source.isPlaying;
 	}
 
-	public bool IsPlaying(Sound sound) {
-		return IsPlaying(_sfxClipNames[sound]);
-	}
-
 	public void Play2D(string sound, float volume = 1f, float pitch = 1f, float delay = 0f) {
 		PlaySfx(sound, volume, pitch, delay, _trans, Vector3.zero, true);
-	}
-
-	public void Play2D(Sound sound, float volume = 1f, float pitch = 1f, float delay = 0f) {
-		PlaySfx(_sfxClipNames[sound], volume, pitch, delay, _trans, Vector3.zero, true);
 	}
 
 	public void Play(string sound, float volume = 1f, float pitch = 1f, float delay = 0f,
 		Transform parent = null, Vector3 position = default) {
 		PlaySfx(sound, volume, pitch, delay, parent, position, false);
-	}
-
-	public void Play(Sound sound, float volume = 1f, float pitch = 1f, float delay = 0f,
-		Transform parent = null, Vector3 position = default) {
-		Play(_sfxClipNames[sound], volume, pitch, delay, parent, position);
-	}
-
-	public void Play(Music music, float volume = 1f) {
-		PlayMusic((int) music, volume);
 	}
 
 	private AudioSource GetSfxSource(string sound) {
@@ -187,26 +160,8 @@ public class SoundManager : MonoBehaviour {
 		return null;
 	}
 
-	private AudioSource GetSfxSource(Sound sound) {
-		return GetSfxSource(_sfxClipNames[sound]);
-	}
-
 	public void Stop(string sound) {
 		GetSfxSource(sound)?.Stop();
-	}
-
-	public void Stop(Sound sound) {
-		Stop(_sfxClipNames[sound]);
-	}
-
-	public void Stop(Sound sound, int sourceIndex) {
-		if (sourceIndex < 0 || sourceIndex >= _sfxSources.Length) {
-			return;
-		}
-		var sfxSource = _sfxSources[sourceIndex];
-		if (sfxSource.clip == _sfxClips[_sfxClipNames[sound]]) {
-			sfxSource.Stop();
-		}
 	}
 
 	public void StopGameplaySound() {
@@ -278,18 +233,10 @@ public class SoundManager : MonoBehaviour {
 		sfxSource.volume = volume * config.volume * (config.gameplaySound ? _gameplayVolumeScale : 1f);
 	}
 
-	public void SetSoundVolume(Sound sound, float volume) {
-		SetSoundVolume(_sfxClipNames[sound], volume);
-	}
-
 	public void SetSoundPitch(string sound, float pitch) {
 		var sfxSource = GetSfxSource(sound);
 		if (sfxSource == null) return;
 		sfxSource.pitch = pitch;
-	}
-
-	public void SetSoundPitch(Sound sound, float pitch) {
-		SetSoundPitch(_sfxClipNames[sound], pitch);
 	}
 
 	private void PlaySfx(string sound, float volume, float pitch, float delay,
@@ -469,13 +416,13 @@ public class SoundManager : MonoBehaviour {
 		_musicSource.Pause();
 	}
 
-	public void CrossFadeMusic(Music music) {
-		_musicClipIndex = (int) music;
+	public void CrossFadeMusic(int clipIndex) {
+		_musicClipIndex = clipIndex;
 		if (!MusicOn) {
 			return;
 		}
 		if (_musicSource.clip == null) {
-			Play(music);
+			PlayMusic(clipIndex);
 			return;
 		}
 		StopCoroutine(nameof(PlayMusicCoroutine));
@@ -533,7 +480,8 @@ public class SoundNameDrawer : PropertyDrawer {
 	public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label) {
 		var contentColor = GUI.contentColor;
 		var backgroundColor = GUI.backgroundColor;
-		_soundManager = _soundManager == null ? Resources.FindObjectsOfTypeAll<SoundManager>().ElementAtOrDefault(0) : _soundManager;
+		_soundManager = _soundManager == null ? Resources.FindObjectsOfTypeAll<SoundManager>().ElementAtOrDefault(0)
+			: _soundManager;
 		if (!string.IsNullOrWhiteSpace(property.stringValue) &&
 		    _soundManager != null && _soundManager.sounds.All(sound => sound.name != property.stringValue)) {
 			GUI.contentColor = GUI.backgroundColor = Color.red;
@@ -582,7 +530,7 @@ public class SoundConfigPropertyDrawer : PropertyDrawer {
 		var infoRect = new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight);
 		var infoStyle = new GUIStyle {alignment = TextAnchor.MiddleRight, normal = {textColor = Color.gray}};
 		EditorGUI.PropertyField(rect, property, label, property.isExpanded);
-		EditorGUI.LabelField(infoRect, Path.GetDirectoryName(filename), infoStyle);
+		EditorGUI.LabelField(infoRect, string.IsNullOrEmpty(filename) ? "" : Path.GetDirectoryName(filename), infoStyle);
 	}
 }
 
