@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour {
 		if (DataManager.Inst.carbon <= 0 || DataManager.Inst.carbon >= ConfigManager.Inst.maxCarbon) {
 			GameOver = true;
 			CancelInvoke(nameof(End));
-			Invoke(nameof(End), 0.5f);
+			Invoke(nameof(End), 0.8f);
 		}
 	}
 

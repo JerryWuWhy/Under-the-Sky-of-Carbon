@@ -79,6 +79,9 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	}
 
 	public void OnDrag(PointerEventData eventData) {
+		if (GameManager.Inst.GameOver) {
+			return;
+		}
 		if (_isDragging) {
 			var offset = GetEventPos(eventData) - _startClickPoint;
 			_PrepareLeft(offset.x < 0 && Mathf.Abs(offset.x) > minOffset);
@@ -88,6 +91,9 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	}
 
 	public void OnPointerUp(PointerEventData eventData) {
+		if (GameManager.Inst.GameOver) {
+			return;
+		}
 		var offset = GetEventPos(eventData) - _startClickPoint;
 		if (Mathf.Abs(offset.x) > minOffset) {
 			if (offset.x < 0) {
