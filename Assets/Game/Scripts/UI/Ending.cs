@@ -11,7 +11,6 @@ public class Ending : MonoBehaviour {
 	}
 
 	public void OnClick() {
-		DataManager.Inst.ResetData();
 		GameManager.Inst.ShowLobby();
 	}
 }
