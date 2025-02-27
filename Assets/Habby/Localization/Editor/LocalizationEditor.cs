@@ -74,14 +74,10 @@ namespace Habby.Localization {
 		}
 
 		private void ImportTranslations(string text) {
-			var lines = text
-				.Replace("\r\n", "\n")
-				.Replace("\n\r", "\n")
-				.Replace("\r", "\n")
-				.Split('\n');
-
-			if (lines.Length <= 1) return;
 			var csv = ParseCsv(text);
+			if (csv.Count <= 1) {
+				return;
+			}
 			var langStrings = csv[0].Skip(1);
 			var languages = new List<SystemLanguage>();
 			foreach (var langString in langStrings) {

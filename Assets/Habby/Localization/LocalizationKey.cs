@@ -14,12 +14,14 @@ namespace Habby.Localization {
 		public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label) {
 			var contentColor = GUI.contentColor;
 			var backgroundColor = GUI.backgroundColor;
+			var propertyRect = new Rect(rect.x, rect.y, rect.width - 20f, rect.height);
 			if (property.propertyType == SerializedPropertyType.String &&
 			    !string.IsNullOrEmpty(property.stringValue) &&
 			    !Localization.HasKey(property.stringValue)) {
 				GUI.contentColor = GUI.backgroundColor = Color.red;
 			}
-			EditorGUI.PropertyField(rect, property, label, true);
+			label.tooltip = Localization.GetString(property.stringValue);
+			EditorGUI.PropertyField(propertyRect, property, label, true);
 			GUI.contentColor = contentColor;
 			GUI.backgroundColor = backgroundColor;
 			var dropdownRect = new Rect(rect.xMax - 20f, rect.y, 20f, rect.height);

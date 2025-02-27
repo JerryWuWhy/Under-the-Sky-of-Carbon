@@ -171,11 +171,11 @@ public class Hud : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpH
 	}
 
 	private void UpdateCard() {
-		carDesc.Key = $"CARD_DESC_{GameManager.Inst.CurrentCard.id}";
-		choiceLeftTitle.Key = $"CARD_CHOICE_LEFT_TITLE_{GameManager.Inst.CurrentCard.id}";
-		choiceLeftDesc.Key = $"CARD_CHOICE_LEFT_DESC_{GameManager.Inst.CurrentCard.id}";
-		choiceRightTitle.Key = $"CARD_CHOICE_RIGHT_TITLE_{GameManager.Inst.CurrentCard.id}";
-		choiceRightDesc.Key = $"CARD_CHOICE_RIGHT_DESC_{GameManager.Inst.CurrentCard.id}";
+		carDesc.Key = GameManager.Inst.CurrentCard.desc;
+		choiceLeftTitle.Key = GameManager.Inst.CurrentCard.choiceLeftTitle;
+		choiceLeftDesc.Key = GameManager.Inst.CurrentCard.choiceLeftDesc;
+		choiceRightTitle.Key = GameManager.Inst.CurrentCard.choiceRightTitle;
+		choiceRightDesc.Key = GameManager.Inst.CurrentCard.choiceRightDesc;
 	}
 
 	private void SetTargetPos(float offsetX) {

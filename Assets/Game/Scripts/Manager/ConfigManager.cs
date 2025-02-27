@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Habby.Localization;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,12 @@ public class CardConfig {
 	public int rightTech;
 	public int rightPrestige;
 	public int rightCarbon;
+
+	[LocalizationKey] public string desc;
+	[LocalizationKey] public string choiceLeftTitle;
+	[LocalizationKey] public string choiceLeftDesc;
+	[LocalizationKey] public string choiceRightTitle;
+	[LocalizationKey] public string choiceRightDesc;
 }
 
 public class ConfigManager : MonoBehaviour {
@@ -28,7 +35,7 @@ public class ConfigManager : MonoBehaviour {
 	public int defTech = 333;
 	public int defPrestige = 333;
 	public int defCarbon = 50;
-	
+
 	public int maxMoney = 666;
 	public int maxTech = 666;
 	public int maxPrestige = 666;
